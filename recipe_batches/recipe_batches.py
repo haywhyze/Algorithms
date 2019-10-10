@@ -3,8 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  batches = []
+  if len(recipe) > len(ingredients):
+    return 0
+  for key in recipe:
+    if ingredients[key] < recipe[key]:
+      return 0
+    else:
+      placeholder = ingredients[key] // recipe[key]
+      batches.append(placeholder)
+  
+  return min(batches) 
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
